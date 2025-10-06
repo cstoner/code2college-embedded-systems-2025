@@ -26,6 +26,8 @@ private slots:
 
     void on_interiorLightsButton_clicked();
 
+    void on_headlightsButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     About *about;

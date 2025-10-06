@@ -20,6 +20,8 @@ public:
 private slots:
     void on_backButton_clicked();
 
+    void on_brightnessSlider_valueChanged(int value);
+
 private:
     Ui::BrightnessControl *ui;
     MainWindow *mainWindow;

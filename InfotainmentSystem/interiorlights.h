@@ -20,6 +20,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_frontCheckbox_stateChanged(int arg1);
+
+    void on_midCheckbox_stateChanged(int arg1);
+
+    void on_backCheckbox_stateChanged(int arg1);
+
 private:
     Ui::InteriorLights *ui;
     MainWindow *mainWindow;
