@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "wiringPi.h"
+
 class MainWindow;
 
 namespace Ui {
@@ -25,6 +27,8 @@ private slots:
     void on_midCheckbox_stateChanged(int arg1);
 
     void on_backCheckbox_stateChanged(int arg1);
+
+    void on_resetButton_clicked();
 
 private:
     Ui::InteriorLights *ui;

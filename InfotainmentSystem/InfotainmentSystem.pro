@@ -27,6 +27,9 @@ FORMS += \
     interiorlights.ui \
     mainwindow.ui
 
+# Add wiringPi to make driving GPIO easier
+LIBS += -L/usr/local/lib -lwiringPi
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
