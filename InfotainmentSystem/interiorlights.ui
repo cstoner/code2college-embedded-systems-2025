@@ -29,7 +29,7 @@
   <widget class="QCheckBox" name="frontCheckbox">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>150</x>
      <y>60</y>
      <width>96</width>
      <height>28</height>
@@ -42,7 +42,7 @@
   <widget class="QCheckBox" name="midCheckbox">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>150</x>
      <y>100</y>
      <width>96</width>
      <height>28</height>
@@ -55,7 +55,7 @@
   <widget class="QCheckBox" name="backCheckbox">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>150</x>
      <y>140</y>
      <width>96</width>
      <height>28</height>
@@ -76,6 +76,32 @@
    </property>
    <property name="text">
     <string>Reset</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="brightenFrontButton">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>60</y>
+     <width>91</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Brighten</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dimFrontButton">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>60</y>
+     <width>91</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Dim</string>
    </property>
   </widget>
  </widget>

@@ -30,6 +30,10 @@ private slots:
 
     void on_resetButton_clicked();
 
+    void on_brightenFrontButton_clicked();
+
+    void on_dimFrontButton_clicked();
+
 private:
     Ui::InteriorLights *ui;
     MainWindow *mainWindow;

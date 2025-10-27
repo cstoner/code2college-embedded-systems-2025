@@ -1,9 +1,12 @@
+#include <softPwm.h>
+
 #include "interiorlights.h"
 #include "ui_interiorlights.h"
 
 #include "mainwindow.h"
 
 static bool front = false;
+static int frontBright = 100;
 static bool middle = false;
 static bool back = false;
 
@@ -19,8 +22,8 @@ InteriorLights::InteriorLights(QWidget *parent) :
     ui(new Ui::InteriorLights)
 {
     wiringPiSetupGpio();
-    pinMode(FRONT_PIN_1,OUTPUT);
-    pinMode(FRONT_PIN_2,OUTPUT);
+    softPwmCreate(FRONT_PIN_1, 0, 100);
+    softPwmCreate(FRONT_PIN_2, 0, 100);
     pinMode(MID_PIN_1,OUTPUT);
     pinMode(MID_PIN_2,OUTPUT);
     pinMode(BACK_PIN_1,OUTPUT);
@@ -49,13 +52,12 @@ void InteriorLights::on_frontCheckbox_stateChanged(int arg1)
 {
     if (arg1 == 0) {
         front = false;
-        digitalWrite(FRONT_PIN_1,LOW);
-        digitalWrite(FRONT_PIN_2,LOW);
     } else {
         front = true;
-        digitalWrite(FRONT_PIN_1,HIGH);
-        digitalWrite(FRONT_PIN_2,HIGH);
     }
+    softPwmWrite(FRONT_PIN_1, frontBright);
+    softPwmWrite(FRONT_PIN_2, frontBright);
+
 }
 
 
@@ -96,5 +98,31 @@ void InteriorLights::on_resetButton_clicked()
     ui->frontCheckbox->setChecked(front);
     ui->midCheckbox->setChecked(middle);
     ui->backCheckbox->setChecked(back);
+}
+
+
+void InteriorLights::on_brightenFrontButton_clicked()
+{
+    if (front) {
+        if (frontBright <= 100) {
+            frontBright += 5;
+        }
+
+        softPwmWrite(FRONT_PIN_1, frontBright);
+        softPwmWrite(FRONT_PIN_2, frontBright);
+    }
+}
+
+
+void InteriorLights::on_dimFrontButton_clicked()
+{
+    if (front) {
+        if (frontBright > 0) {
+            frontBright -= 5;
+        }
+
+        softPwmWrite(FRONT_PIN_1, frontBright);
+        softPwmWrite(FRONT_PIN_2, frontBright);
+    }
 }
 
